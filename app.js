@@ -6,7 +6,7 @@ const app = express();
 const PORT = 8080;
 
 // Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/money_track', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Create a schema for transactions
 const transactionSchema = new mongoose.Schema({
