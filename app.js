@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -6,7 +7,7 @@ const app = express();
 const PORT = 8080;
 
 // Connect to MongoDB
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Create a schema for transactions
 const transactionSchema = new mongoose.Schema({
