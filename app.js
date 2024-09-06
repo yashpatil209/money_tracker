@@ -7,7 +7,15 @@ const app = express();
 const PORT = 8080;
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose
+    .connect(process.env.MONGODB_URI, { 
+        useNewUrlParser: true,
+        useCreateIndex: true
+      })
+    .then(() => console.log('MongoDB connected...'))
+    .catch(err => console.log(err));
 
 // Create a schema for transactions
 const transactionSchema = new mongoose.Schema({
